@@ -5,79 +5,168 @@
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unity 2026 | Theme Editor</title>
-    <script type="module" crossorigin src="./assets/index-DONSkjwY.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BhP55kib.css">
+    <script type="module" crossorigin src="./assets/index-BE_EtGXB.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CWinJZiL.css">
   </head>
   <body>
     <div id="app">
       <header class="editor-header">
         <div class="logo">✨ Unity 2026</div>
         <div class="actions">
-          <button id="export-btn" class="btn-primary">Export .css</button>
+          <button id="export-btn" class="btn-primary">Export .theme.css</button>
         </div>
       </header>
-
+      
       <main class="editor-container">
         <!-- Editor Controls -->
         <aside class="editor-pane">
-          <section class="control-group">
-            <h3>Global Aesthetics</h3>
-            <div class="control">
-              <label>Accent Hue</label>
-              <input
-                type="range"
-                id="accent-hue"
-                min="0"
-                max="360"
-                value="210"
-              />
-            </div>
-            <div class="control">
-              <label>Island Gap</label>
-              <input type="range" id="island-gap" min="0" max="24" value="8" />
-            </div>
-            <div class="control">
-              <label>Border Radius</label>
-              <input
-                type="range"
-                id="border-radius"
-                min="0"
-                max="32"
-                value="20"
-              />
-            </div>
-          </section>
+          <nav class="editor-tabs">
+            <button class="tab-btn active" data-tab="general">General</button>
+            <button class="tab-btn" data-tab="colors">Colors</button>
+            <button class="tab-btn" data-tab="chat">Chat</button>
+            <button class="tab-btn" data-tab="advanced">Advanced</button>
+          </nav>
 
-          <section class="control-group">
-            <h3>Colors</h3>
-            <div class="control">
-              <label>Island Background</label>
-              <input type="color" id="bg-secondary" value="#161616" />
-            </div>
-            <div class="control">
-              <label>App Background</label>
-              <input type="color" id="bg-tertiary" value="#0a0a0a" />
-            </div>
-          </section>
+          <div class="tab-content active" id="tab-general">
+            <section class="control-group">
+              <h3>Global Aesthetics</h3>
+              <div class="control">
+                <div class="label-row">
+                  <label>Accent Hue</label>
+                  <span class="value-display" id="val-accent-hue">210</span>
+                </div>
+                <input type="range" id="accent-hue" min="0" max="360" value="210">
+              </div>
+              <div class="control">
+                <div class="label-row">
+                  <label>Island Gap</label>
+                  <span class="value-display" id="val-island-gap">8px</span>
+                </div>
+                <input type="range" id="island-gap" min="0" max="32" value="8">
+              </div>
+              <div class="control">
+                <div class="label-row">
+                  <label>Border Radius</label>
+                  <span class="value-display" id="val-border-radius">20px</span>
+                </div>
+                <input type="range" id="border-radius" min="0" max="40" value="20">
+              </div>
+            </section>
+          </div>
 
-          <section class="control-group">
-            <h3>Chat Bubbles</h3>
-            <div class="control">
-              <label>Bubble Radius</label>
-              <input
-                type="range"
-                id="bubble-radius"
-                min="0"
-                max="32"
-                value="24"
-              />
-            </div>
-          </section>
+          <div class="tab-content" id="tab-colors">
+            <section class="control-group">
+              <h3>Theme Backgrounds</h3>
+              <div class="control col">
+                <label>Island Background</label>
+                <div class="input-row">
+                  <input type="color" id="bg-secondary" value="#161616">
+                  <span class="hex-display" id="val-bg-secondary">#161616</span>
+                </div>
+              </div>
+              <div class="control col">
+                <label>App Background</label>
+                <div class="input-row">
+                  <input type="color" id="bg-tertiary" value="#0a0a0a">
+                  <span class="hex-display" id="val-bg-tertiary">#0a0a0a</span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="tab-content" id="tab-chat">
+            <section class="control-group">
+              <h3>Message Bubbles</h3>
+              <div class="control">
+                <div class="label-row">
+                  <label>Bubble Radius</label>
+                  <span class="value-display" id="val-bubble-radius">24px</span>
+                </div>
+                <input type="range" id="bubble-radius" min="0" max="40" value="24">
+              </div>
+              <div class="control col">
+                <label>Bubble Background</label>
+                <div class="input-row">
+                  <input type="color" id="bubble-bg" value="#161616">
+                  <span class="hex-display" id="val-bubble-bg">#161616</span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="tab-content" id="tab-advanced">
+            <section class="control-group">
+              <h3>Effects</h3>
+              <div class="control">
+                <div class="label-row">
+                  <label>Global Opacity</label>
+                  <span class="value-display" id="val-opacity">1</span>
+                </div>
+                <input type="range" id="opacity" min="0" max="1" step="0.01" value="1">
+              </div>
+              <div class="control">
+                <div class="label-row">
+                  <label>Blur Intensity</label>
+                  <span class="value-display" id="val-blur">5px</span>
+                </div>
+                <input type="range" id="blur" min="0" max="20" value="5">
+              </div>
+            </section>
+          </div>
         </aside>
 
         <!-- Preview Mockup -->
         <section class="preview-pane" id="preview-root">
-          <!-- Mock Discord UI will be injected here -->
+          <div class="mock-discord">
+            <nav class="mock-guilds">
+              <div class="mock-guild-item active"></div>
+              <div class="mock-guild-item"></div>
+              <div class="mock-guild-item sep"></div>
+              <div class="mock-guild-item"></div>
+            </nav>
+            <aside class="mock-sidebar">
+              <header class="mock-sidebar-header">Server Name</header>
+              <div class="mock-channel-list">
+                <div class="mock-channel active"># general</div>
+                <div class="mock-channel"># design-island</div>
+                <div class="mock-channel"># showcase</div>
+              </div>
+              <div class="mock-user-panel">
+                <div class="mock-avatar"></div>
+                <div class="mock-user-info">
+                  <div class="mock-username">Unity User</div>
+                  <div class="mock-status">Online</div>
+                </div>
+              </div>
+            </aside>
+            <main class="mock-chat">
+              <header class="mock-chat-header"># general</header>
+              <div class="mock-messages">
+                <div class="mock-message first">
+                  <div class="mock-msg-avatar"></div>
+                  <div class="mock-msg-content">
+                    <div class="mock-msg-user">Developer ✨</div>
+                    <div class="mock-bubble">Hey! Check out the new 2026 Unity theme editor. 🏝️</div>
+                  </div>
+                </div>
+                <div class="mock-message">
+                  <div class="mock-msg-content no-avatar">
+                    <div class="mock-bubble">It's a high-fidelity "Floating Island" layout built with modular SCSS.</div>
+                  </div>
+                </div>
+                <div class="mock-message first">
+                  <div class="mock-msg-avatar other"></div>
+                  <div class="mock-msg-content">
+                    <div class="mock-msg-user">User 1</div>
+                    <div class="mock-bubble secondary">Wow, the bubbles are so rounded! Love the glassy look.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mock-input-area">
+                <div class="mock-input-bar">Message #general</div>
+              </div>
+            </main>
+          </div>
         </section>
       </main>
     </div>
