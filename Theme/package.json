@@ -1,9 +1,9 @@
 {
 	"type": "module",
 	"scripts": {
-		"build": "bd-scss build",
-		"dev": "bd-scss dev",
-		"watch": "bd-scss watch"
+		"build": "node compile.js",
+		"dev": "node compile.js",
+		"watch": "node compile.js"
 	},
 	"dependencies": {
 		"bd-scss": "latest"

@@ -82,6 +82,9 @@
         --unity-chat-bubble-box-shadow-v-offset: 4px;
         --unity-chat-bubble-box-shadow-blur: 15px;
 
+        --unity-chat-bubble-box-shadow-color-h: 0;
+        --unity-chat-bubble-box-shadow-color-s: 0%;
+        --unity-chat-bubble-box-shadow-color-l: 0%;
         --unity-chat-bubble-box-shadow-color-a: 0.1;
 
         --unity-border-radius: 20px; /* Matching the island design */
@@ -118,7 +121,7 @@
         /* DISCORD STOCK VARIABLE OVERRIDES */
 
         --font-primary: var(--unity-custom-font, "Samsung One"), "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        --font-display: var(--unity-custom-font, "Samsung One"), "gg sans", "Noto Sans", , "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-display: var(--unity-custom-font, "Samsung One"), "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         --font-headline: var(--unity-custom-font, "Samsung Sharp Sans"), "ABC Ginto Nord", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
         --radius-sm: var(--unity-border-radius);

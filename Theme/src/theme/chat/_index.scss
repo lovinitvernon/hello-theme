@@ -10,8 +10,6 @@
 
 
 
-.base_c0676e {
-
     .searchResultsWrap__2e184 {
         background: transparent;
     }
@@ -178,9 +176,6 @@
         /* Set backgrounds to transparent so we can see wrapper's background */
     }
 
-
-}
-
 main:not(.container_ec90d4) {
     background-color: var(--chat-background-color, var(--background-primary));
     border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
@@ -208,5 +203,5 @@ main:not(.container_ec90d4) {
 
 .searchResultsWrap__2e184 {
     border-radius: 0 var(--unity-border-radius) var(--unity-border-radius) 0;
-                    }
+}
                     
