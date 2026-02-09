@@ -5,19 +5,25 @@
   --unity-background-secondary: #161616;
   --unity-background-tertiary: #0a0a0a;
   --bubble-radius: 24px;
+  --bubble-bg: #161616;
+  --blur-intensity: 5px;
+  --opacity: 1;
   
-  --editor-bg: #0f0f0f;
-  --card-bg: rgba(255, 255, 255, 0.05);
+  --editor-bg: #09090b;
+  --editor-pane-bg: #111114;
   --accent: hsl(var(--unity-accent-hue), 99%, 50%);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-dim: #a1a1aa;
 }
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
   background-color: var(--editor-bg);
   color: #fff;
   height: 100vh;
@@ -30,38 +36,44 @@ body {
   height: 100%;
 }
 
+/* Header */
 .editor-header {
-  height: 60px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  background: rgba(0,0,0,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  padding: 0 20px;
+  background: var(--editor-pane-bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 18px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .btn-primary {
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 8px 20px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  transition: opacity 0.2s;
+  font-size: 13px;
+  transition: transform 0.1s, filter 0.2s;
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
 }
 
+/* Editor Layout */
 .editor-container {
   display: flex;
   flex: 1;
@@ -70,77 +82,245 @@ body {
 
 .editor-pane {
   width: 320px;
+  background: var(--editor-pane-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabs */
+.editor-tabs {
+  display: flex;
+  padding: 12px;
+  gap: 4px;
   background: rgba(0,0,0,0.2);
-  border-right: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
   padding: 24px;
+  flex: 1;
   overflow-y: auto;
 }
 
+.tab-content.active {
+  display: block;
+}
+
+/* Controls */
 .control-group {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .control-group h3 {
-  font-size: 14px;
+  font-size: 11px;
   text-transform: uppercase;
-  color: #666;
+  color: var(--text-dim);
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
 .control {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.control.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .control label {
-  display: block;
+  font-size: 13px;
+  color: #e4e4e7;
+  font-weight: 500;
+}
+
+.value-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hex-display {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  margin-bottom: 8px;
-  color: #aaa;
+  color: var(--text-dim);
 }
 
 input[type="range"] {
   width: 100%;
   accent-color: var(--accent);
+  background: rgba(255,255,255,0.05);
+  height: 6px;
+  border-radius: 3px;
+  appearance: none;
 }
 
 input[type="color"] {
-  width: 100%;
-  height: 32px;
+  width: 40px;
+  height: 24px;
   border: none;
   background: none;
+  padding: 0;
   cursor: pointer;
 }
 
+/* Mock Discord Preview */
 .preview-pane {
   flex: 1;
   background-color: var(--unity-background-tertiary);
-  padding: 24px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
-/* Mock Discord CSS will go here */
 .mock-discord {
   width: 100%;
+  max-width: 1000px;
   height: 100%;
+  max-height: 700px;
   display: flex;
   gap: var(--unity-island-gap);
   padding: var(--unity-island-gap);
+  opacity: var(--opacity);
+  transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mock-guilds {
   width: 72px;
   background: var(--unity-background-tertiary);
   border-radius: var(--unity-border-radius);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+  align-items: center;
+}
+
+.mock-guild-item {
+  width: 48px;
+  height: 48px;
+  background: var(--unity-background-secondary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mock-guild-item.active {
+  border-radius: 16px;
+  background: var(--accent);
+}
+
+.mock-guild-item.sep {
+  height: 2px;
+  width: 32px;
+  background: rgba(255,255,255,0.1);
 }
 
 .mock-sidebar {
   width: 240px;
   background: var(--unity-background-secondary);
   border-radius: var(--unity-border-radius);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-sidebar-header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.mock-channel-list {
+  padding: 12px 8px;
+  flex: 1;
+}
+
+.mock-channel {
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.mock-channel.active {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.mock-user-panel {
+  height: 52px;
+  background: rgba(0,0,0,0.2);
+  margin-top: var(--unity-island-gap);
+  border-radius: var(--unity-border-radius);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.mock-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.mock-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-username {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mock-status {
+  font-size: 11px;
+  color: var(--text-dim);
 }
 
 .mock-chat {
@@ -149,25 +329,75 @@ input[type="color"] {
   border-radius: var(--unity-border-radius);
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  transition: border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mock-chat-header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 .mock-messages {
   flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.mock-message {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.mock-msg-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mock-msg-avatar.other {
+  background: #5865F2;
+}
+
+.mock-msg-user {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .mock-bubble {
-  background: var(--unity-background-tertiary);
-  padding: 12px 18px;
+  background: var(--bubble-bg);
+  padding: 10px 16px;
   border-radius: var(--bubble-radius);
-  max-width: fit-content;
-  margin-bottom: 8px;
+  max-width: 400px;
   font-size: 14px;
+  line-height: 1.4;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mock-input {
+.mock-bubble.secondary {
   background: var(--unity-background-tertiary);
-  height: 48px;
+}
+
+.mock-input-area {
+  padding: 0 16px 24px;
+}
+
+.mock-input-bar {
+  background: var(--unity-background-tertiary);
+  height: 44px;
   border-radius: 8px;
-  margin-top: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: var(--text-dim);
+  font-size: 14px;
 }

@@ -1,82 +1,124 @@
 import './style.css';
 
-const previewRoot = document.getElementById('preview-root');
-const exportBtn = document.getElementById('export-btn');
-
-// Inputs
-const inputs = {
-  accentHue: document.getElementById('accent-hue'),
-  islandGap: document.getElementById('island-gap'),
-  borderRadius: document.getElementById('border-radius'),
-  bgSecondary: document.getElementById('bg-secondary'),
-  bgTertiary: document.getElementById('bg-tertiary'),
-  bubbleRadius: document.getElementById('bubble-radius'),
+// DOM Elements
+const elements = {
+  tabBtns: document.querySelectorAll('.tab-btn'),
+  tabContents: document.querySelectorAll('.tab-content'),
+  exportBtn: document.getElementById('export-btn'),
+  inputs: {
+    accentHue: document.getElementById('accent-hue'),
+    islandGap: document.getElementById('island-gap'),
+    borderRadius: document.getElementById('border-radius'),
+    bgSecondary: document.getElementById('bg-secondary'),
+    bgTertiary: document.getElementById('bg-tertiary'),
+    bubbleRadius: document.getElementById('bubble-radius'),
+    bubbleBg: document.getElementById('bubble-bg'),
+    opacity: document.getElementById('opacity'),
+    blur: document.getElementById('blur'),
+  },
+  displays: {
+    accentHue: document.getElementById('val-accent-hue'),
+    islandGap: document.getElementById('val-island-gap'),
+    borderRadius: document.getElementById('val-border-radius'),
+    bgSecondary: document.getElementById('val-bg-secondary'),
+    bgTertiary: document.getElementById('val-bg-tertiary'),
+    bubbleRadius: document.getElementById('val-bubble-radius'),
+    bubbleBg: document.getElementById('val-bubble-bg'),
+    opacity: document.getElementById('val-opacity'),
+    blur: document.getElementById('val-blur'),
+  }
 };
 
-// Injection of Mock Discord UI
-const injectMock = () => {
-  previewRoot.innerHTML = `
-    <div class="mock-discord">
-      <div class="mock-guilds"></div>
-      <div class="mock-sidebar"></div>
-      <div class="mock-chat">
-        <div class="mock-messages">
-          <div class="mock-bubble">Hey! Check out this new theme 🏝️</div>
-          <div class="mock-bubble">Everything is so rounded and clean.</div>
-          <div class="mock-bubble">I love the floating islands.</div>
-        </div>
-        <div class="mock-input"></div>
-      </div>
-    </div>
-  `;
-};
+// Tab Switching Logic
+elements.tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tabId = btn.getAttribute('data-tab');
+    
+    // Update buttons
+    elements.tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Update content
+    elements.tabContents.forEach(content => {
+      content.classList.remove('active');
+      if (content.id === `tab-${tabId}`) {
+        content.classList.add('active');
+      }
+    });
+  });
+});
 
-// Syncing inputs to CSS Variables
+// Update Theme & Displays
 const updateTheme = () => {
   const root = document.documentElement;
-  root.style.setProperty('--unity-accent-hue', inputs.accentHue.value);
-  root.style.setProperty('--unity-island-gap', `${inputs.islandGap.value}px`);
-  root.style.setProperty('--unity-border-radius', `${inputs.borderRadius.value}px`);
-  root.style.setProperty('--unity-background-secondary', inputs.bgSecondary.value);
-  root.style.setProperty('--unity-background-tertiary', inputs.bgTertiary.value);
-  root.style.setProperty('--bubble-radius', `${inputs.bubbleRadius.value}px`);
+  const vals = elements.inputs;
+  const disp = elements.displays;
+
+  // Set CSS Variables
+  root.style.setProperty('--unity-accent-hue', vals.accentHue.value);
+  root.style.setProperty('--unity-island-gap', `${vals.islandGap.value}px`);
+  root.style.setProperty('--unity-border-radius', `${vals.borderRadius.value}px`);
+  root.style.setProperty('--unity-background-secondary', vals.bgSecondary.value);
+  root.style.setProperty('--unity-background-tertiary', vals.bgTertiary.value);
+  root.style.setProperty('--bubble-radius', `${vals.bubbleRadius.value}px`);
+  root.style.setProperty('--bubble-bg', vals.bubbleBg.value);
+  root.style.setProperty('--opacity', vals.opacity.value);
+  root.style.setProperty('--blur-intensity', `${vals.blur.value}px`);
+
+  // Update Value Displays
+  disp.accentHue.textContent = vals.accentHue.value;
+  disp.islandGap.textContent = `${vals.islandGap.value}px`;
+  disp.borderRadius.textContent = `${vals.borderRadius.value}px`;
+  disp.bgSecondary.textContent = vals.bgSecondary.value.toUpperCase();
+  disp.bgTertiary.textContent = vals.bgTertiary.value.toUpperCase();
+  disp.bubbleRadius.textContent = `${vals.bubbleRadius.value}px`;
+  disp.bubbleBg.textContent = vals.bubbleBg.value.toUpperCase();
+  disp.opacity.textContent = vals.opacity.value;
+  disp.blur.textContent = `${vals.blur.value}px`;
 };
 
 // Export Functionality
 const exportCss = () => {
-  const css = `/**
- * Unity 2026 Custom Build
- * Generated via Unity Editor
- */
+  const vals = elements.inputs;
+  const timestamp = new Date().toLocaleDateString();
+
+  const themeFile = `/**
+ * @name Unity 2026 (Custom)
+ * @author super.user
+ * @version 2.1.0-custom
+ * @description A customized "Floating Island" theme generated on ${timestamp}.
+ * @source https://github.com/lovinitvernon/hello-theme
+*/
+
+@import url('https://lovinitvernon.github.io/hello-theme/Theme/Unity.css');
 
 :root {
-  --unity-accent-hue: ${inputs.accentHue.value};
-  --unity-island-gap: ${inputs.islandGap.value}px;
-  --unity-border-radius: ${inputs.borderRadius.value}px;
-  --unity-background-secondary: ${inputs.bgSecondary.value};
-  --unity-background-tertiary: ${inputs.bgTertiary.value};
-  --bubble-radius: ${inputs.bubbleRadius.value}px;
+  --unity-accent-hue: ${vals.accentHue.value};
+  --unity-island-gap: ${vals.islandGap.value}px;
+  --unity-border-radius: ${vals.borderRadius.value}px;
+  --unity-background-secondary: ${vals.bgSecondary.value};
+  --unity-background-tertiary: ${vals.bgTertiary.value};
+  --bubble-radius: ${vals.bubbleRadius.value}px;
+  --unity-chat-bubble-background-color: ${vals.bubbleBg.value};
+  --unity-opacity: ${vals.opacity.value};
+  --unity-floating-blur-radius: ${vals.blur.value}px;
 }
-
-/* Import the base theme */
-@import url('https://lovinitvernon.github.io/hello-theme/Theme/Unity.css');
 `;
 
-  const blob = new Blob([css], { type: 'text/css' });
+  const blob = new Blob([themeFile], { type: 'text/css' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Unity-Custom.theme.css';
+  a.download = 'Unity_Custom.theme.css';
   a.click();
 };
 
 // Event Listeners
-Object.values(inputs).forEach(input => {
+Object.values(elements.inputs).forEach(input => {
   input.addEventListener('input', updateTheme);
 });
 
-exportBtn.addEventListener('click', exportCss);
+elements.exportBtn.addEventListener('click', exportCss);
 
 // Initialize
-injectMock();
 updateTheme();
