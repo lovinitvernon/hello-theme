@@ -1,0 +1,53 @@
+/* Bubbles System - Unity Inspired */
+
+:root {
+    --bubble-bg: rgba(255, 255, 255, 0.07);
+    --bubble-radius: 16px;
+    --gutter-width: 60px;
+}
+
+/* Ensure the message container respects the gutter */
+[class^="message_"] {
+    position: relative;
+    margin-left: var(--gutter-width) !important;
+    padding-left: 0 !important;
+    background: transparent !important;
+}
+
+/* Isolate the PFP in the gutter */
+[class^="avatar_"] {
+    position: absolute;
+    left: calc(-1 * var(--gutter-width));
+    top: 5px;
+    width: 40px !important;
+    height: 40px !important;
+    z-index: 1;
+}
+
+/* The Bubble System */
+[class^="contents_"] {
+    display: inline-block !important;
+    max-width: fit-content !important;
+    background-color: var(--bubble-bg) !important;
+    border-radius: var(--bubble-radius) !important;
+    padding: 10px 16px !important;
+    margin: 4px 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for definition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure images and GIFs are handled within the bubble */
+[class^="message_"] [class^="container_"] {
+    max-width: 100% !important;
+}
+
+/* Fix for consecutive messages from the same user (without avatars) */
+[class^="message_"][class*="cozy_"] {
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+}
+
+/* Hover effect */
+[class^="message_"]:hover [class^="contents_"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}

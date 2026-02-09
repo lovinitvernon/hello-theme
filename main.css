@@ -1,55 +1,36 @@
-/**
- * MICHAELA'S UNITY REPLICA - MAIN ENGINE
- * Stable for 2026 Discord UI
- */
-
-/* 1. Imports - Add your sub-files here */
-@import url('https://raw.githubusercontent.com/joshuah345/Discord-Stuff/refs/heads/scss/Themes/Unity/css/UnityAnimations.css');
+/* Main Stylesheet - Discord 2026 Unity Replica */
+@import url('bubbles.css');
+@import url('icons.css');
 
 :root {
-    --u-glass: rgba(255, 255, 255, 0.05);
-    --u-border: rgba(255, 255, 255, 0.1);
-    --u-radius: 15px;
-    --u-pfp-gap: 62px;
+    --unity-font: 'Inter', 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --background-primary: #1e1e1e; /* Unity dark background */
+    --background-secondary: #161616;
+    --background-tertiary: #0e0e0e;
+    --header-primary: #ffffff;
+    --header-secondary: #b9bbbe;
+    --text-normal: #dcddde;
+    --text-muted: #72767d;
 }
 
-/* 2. The Chat "Mesh" (Bubbles) */
-[class^="message_"] {
-    background: transparent !important;
-    padding-left: var(--u-pfp-gap) !important;
-    margin-bottom: 8px !important;
-    position: relative;
-    overflow: visible !important;
+body {
+    font-family: var(--unity-font);
 }
 
-[class^="contents_"] {
-    background: var(--u-glass);
-    border: 1px solid var(--u-border);
-    border-radius: var(--u-radius);
-    padding: 10px 14px !important;
-    width: fit-content;
-    max-width: 85%;
-    display: inline-flex;
-    flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* 3. The Anchor (PFPs outside) */
-[class^="avatar_"] {
-    position: absolute !important;
-    left: 10px !important;
-    top: 4px !important;
-}
-
-/* 4. Fix for Stickers & Media */
-[class^="container_"] { margin-top: 5px; }
-[class^="message_"]:has([class*="sticker_"]) [class^="contents_"] {
-    background: transparent !important;
-    border: none !important;
-}
-
-/* 5. The "No Cut-off" Rule */
+/* Ensure the typing area doesn't overlap or get blocked */
 [class^="channelTextArea_"] {
-    z-index: 100 !important;
-    background: var(--background-primary);
+    background-color: var(--background-secondary) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 0 !important;
+    z-index: 10;
+}
+
+/* Fix for the chat scrollbar container to ensure it stays below the text area */
+[class^="chatContent_"] {
+    background-color: var(--background-primary) !important;
+}
+
+/* Ensure the cursor is always visible and interactable */
+[class^="textArea_"] {
+    cursor: text !important;
 }
