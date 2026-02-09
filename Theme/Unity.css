@@ -383,6 +383,20 @@ body #app-mount .app_b1f720 .app_de4237 .bg__12180 {
   height: 10px;
 }
 
+[class*=privateChannels_] [class*=channel_], [class*=privateChannels_] [class*=interactive_] {
+  border-radius: calc(var(--unity-border-radius) - 8px);
+  margin: 2px 0;
+}
+[class*=privateChannels_] [class*=channel_] [class*=avatar_], [class*=privateChannels_] [class*=interactive_] [class*=avatar_] {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  margin-right: 8px;
+}
+[class*=privateChannels_] [class*=channel_] [class*=avatar_] img, [class*=privateChannels_] [class*=interactive_] [class*=avatar_] img {
+  border-radius: calc(var(--unity-border-radius) - 12px);
+}
+
 .sidebar_e031be,
 .sidebar_e031be.hasNotice_cc284c {
   border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
@@ -422,6 +436,19 @@ body #app-mount .app_b1f720 .app_de4237 .bg__12180 {
 .sidebar_e031be.hasNotice_cc284c > nav button.searchBarComponent__8f95f,
 .sidebar_e031be.hasNotice_cc284c.scrollerBase-_bVAAt button.searchBarComponent__8f95f {
   border-radius: calc(var(--unity-border-radius) - 10px);
+  background-color: var(--background-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.2s ease;
+}
+.sidebar_e031be > nav button.searchBarComponent__8f95f:hover, .sidebar_e031be.scrollerBase-_bVAAt button.searchBarComponent__8f95f:hover,
+.sidebar_e031be.hasNotice_cc284c > nav button.searchBarComponent__8f95f:hover,
+.sidebar_e031be.hasNotice_cc284c.scrollerBase-_bVAAt button.searchBarComponent__8f95f:hover {
+  background-color: var(--background-secondary-alt);
+}
+.sidebar_e031be > nav.scrollerBase-_bVAAt, .sidebar_e031be.scrollerBase-_bVAAt.scrollerBase-_bVAAt,
+.sidebar_e031be.hasNotice_cc284c > nav.scrollerBase-_bVAAt,
+.sidebar_e031be.hasNotice_cc284c.scrollerBase-_bVAAt.scrollerBase-_bVAAt {
+  padding: 10px 8px !important;
 }
 .sidebar_e031be > nav::after, .sidebar_e031be.scrollerBase-_bVAAt::after,
 .sidebar_e031be.hasNotice_cc284c > nav::after,
@@ -444,9 +471,9 @@ body #app-mount .app_b1f720 .app_de4237 .bg__12180 {
 
 /* PANELS */
 [class*=panels_] {
-  margin-top: calc(var(--unity-island-gap) * var(--enable-gaps));
+  margin-top: calc(var(--unity-island-gap) * 1.5 * var(--enable-gaps));
   opacity: var(--unity-opacity, 1);
-  border: calc(var(--panels-border-width, 0) * var(--enable-gaps)) solid var(--panels-border-color, transparent);
+  border: none;
   overflow: hidden;
   border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
   background-color: var(--background-secondary);
@@ -455,11 +482,17 @@ body #app-mount .app_b1f720 .app_de4237 .bg__12180 {
   background-repeat: no-repeat;
   background-blend-mode: multiply;
   backdrop-filter: blur(var(--panels-background-blur));
+  min-height: 48px;
+}
+[class*=panels_] [class*=container_] {
+  height: 48px;
+  padding: 0 8px;
 }
 [class*=panels_] [class*=avatarWrapper_] {
-  border-radius: calc(var(--unity-border-radius) - 8px);
-  margin: 4px;
-  padding: 4px 8px;
+  border-radius: calc(var(--unity-border-radius) - 10px);
+  margin: 2px 4px;
+  padding: 2px 4px;
+  height: 36px;
 }
 [class*=panels_] [class*=avatarWrapper_]:hover {
   background-color: var(--background-modifier-hover);
@@ -1057,14 +1090,22 @@ main:not(.container_ec90d4) .jumpToPresentBar__69174 {
 
 /* The Bubble System */
 [class*=contents_] {
+  --bubble-padding: 12px 16px;
+  --bubble-margin: 6px 0;
+  --bubble-max-width: 85%;
   display: inline-block !important;
-  max-width: fit-content !important;
+  max-width: var(--bubble-max-width) !important;
   background-color: var(--bubble-bg) !important;
   border-radius: var(--bubble-radius) !important;
-  padding: 12px 18px !important;
-  margin: 6px 0 !important;
+  padding: var(--bubble-padding) !important;
+  margin: var(--bubble-margin) !important;
   border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for definition */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* Text wrapping refinements */
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  white-space: pre-wrap !important;
+  line-height: 1.4 !important;
 }
 .theme-light [class*=contents_] {
   background-color: var(--background-primary) !important;

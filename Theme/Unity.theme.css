@@ -54,7 +54,7 @@
   --unity-accent-lightness: 50%;
   --unity-background-primary: #000000;
   --unity-background-primary-rgb: 0, 0, 0;
-  --unity-background-secondary: #2b2b2b;
+  --unity-background-secondary: #3d3c3c;
   --unity-background-secondary-alt: #212020;
   --unity-background-secondary-rgb: 43, 43, 43;
   --unity-background-tertiary: #454545;
@@ -86,7 +86,7 @@
   --panels-border-color: unset;
   --panels-border-width: unset;
 
-  --chat-background-color: unset;
+  --chat-background-color: #3b3b3b;
   --chat-background-image: none;
   --chat-background-blur: unset;
   --chat-border-color: unset;

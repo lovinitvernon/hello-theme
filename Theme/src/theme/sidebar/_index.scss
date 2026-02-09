@@ -2,6 +2,26 @@
 @use './unread';
 @use '../keyframes';
 
+// DM List (Private Channels) 
+[class*="privateChannels_"] {
+    [class*="channel_"], [class*="interactive_"] {
+        border-radius: calc(var(--unity-border-radius) - 8px);
+        margin: 2px 0;
+        
+        // Ensure avatars are visible
+        [class*="avatar_"] {
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            margin-right: 8px;
+            
+            img {
+                border-radius: calc(var(--unity-border-radius) - 12px);
+            }
+        }
+    }
+}
+
 
     .sidebar_e031be,
     .sidebar_e031be.hasNotice_cc284c {
@@ -40,6 +60,18 @@
 
             button.searchBarComponent__8f95f {
                 border-radius: calc(var(--unity-border-radius) - 10px);
+                background-color: var(--background-tertiary);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: background-color 0.2s ease;
+                
+                &:hover {
+                    background-color: var(--background-secondary-alt);
+                }
+            }
+            
+            // Adjust scroller padding for islands
+            &.scrollerBase-_bVAAt {
+                padding: 10px 8px !important;
             }
 
             &::after {
@@ -63,9 +95,9 @@
 
     /* PANELS */
     [class*="panels_"] {
-        margin-top: calc(var(--unity-island-gap) * var(--enable-gaps));
+        margin-top: calc(var(--unity-island-gap) * 1.5 * var(--enable-gaps)); // Increased gap
         opacity: var(--unity-opacity, 1);
-        border: calc(var(--panels-border-width, 0) * var(--enable-gaps)) solid var(--panels-border-color, transparent);
+        border: none; // No borders as requested
         overflow: hidden;
         border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
         background-color: var(--background-secondary);
@@ -74,12 +106,19 @@
         background-repeat: no-repeat;
         background-blend-mode: multiply;
         backdrop-filter: blur(var(--panels-background-blur));
+        
+        min-height: 48px; // Shorter look
 
+        [class*="container_"] {
+            height: 48px; // Shorter look
+            padding: 0 8px;
+        }
 
         [class*="avatarWrapper_"] {
-            border-radius: calc(var(--unity-border-radius) - 8px);
-            margin: 4px;
-            padding: 4px 8px;
+            border-radius: calc(var(--unity-border-radius) - 10px);
+            margin: 2px 4px;
+            padding: 2px 4px;
+            height: 36px;
             
             &:hover {
                 background-color: var(--background-modifier-hover);
