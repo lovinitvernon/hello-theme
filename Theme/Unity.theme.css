@@ -9,8 +9,14 @@
 */
 
 
-@import url("main.css");
+@import url("Unity.css");
 
+
+/* 
+   The Unity 2026 theme is now modular! 
+   You can customize colors and gaps in Theme/src/theme/_root.scss 
+   and rebuild using "npm run build".
+*/
 
 /* Please visit https://github.com/joshuah345/Discord-Stuff/wiki/Themes#unity for a variable guide.
  Some are omitted from this theme file as they are considered optional. */
