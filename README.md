@@ -2,6 +2,8 @@
 
 ### 🏝️ A Premium "Floating Island" Discord Theme
 
+[**✨ Try the Live Theme Editor! ✨**](https://lovinitvernon.github.io/hello-theme/)
+
 Welcome to the future of Discord! **Unity 2026** is a high-fidelity, Samsung OneUI-inspired theme designed for the modern Discord experience. It brings a clean, segmented, and "floating" aesthetic to every corner of the app.
 
 ---
