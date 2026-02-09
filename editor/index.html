@@ -18,103 +18,28 @@
       <main class="editor-container">
         <!-- Editor Controls -->
         <aside class="editor-pane">
-          <nav class="editor-tabs">
-            <button class="tab-btn active" data-tab="general">General</button>
-            <button class="tab-btn" data-tab="colors">Colors</button>
-            <button class="tab-btn" data-tab="chat">Chat</button>
-            <button class="tab-btn" data-tab="advanced">Advanced</button>
+          <nav class="editor-tabs" id="tab-nav">
+            <!-- Tabs will be injected here -->
           </nav>
 
-          <div class="tab-content active" id="tab-general">
-            <section class="control-group">
-              <h3>Global Aesthetics</h3>
-              <div class="control">
-                <div class="label-row">
-                  <label>Accent Hue</label>
-                  <span class="value-display" id="val-accent-hue">210</span>
-                </div>
-                <input type="range" id="accent-hue" min="0" max="360" value="210">
-              </div>
-              <div class="control">
-                <div class="label-row">
-                  <label>Island Gap</label>
-                  <span class="value-display" id="val-island-gap">8px</span>
-                </div>
-                <input type="range" id="island-gap" min="0" max="32" value="8">
-              </div>
-              <div class="control">
-                <div class="label-row">
-                  <label>Border Radius</label>
-                  <span class="value-display" id="val-border-radius">20px</span>
-                </div>
-                <input type="range" id="border-radius" min="0" max="40" value="20">
-              </div>
-            </section>
+          <div id="tab-container">
+            <!-- Fields will be injected here -->
           </div>
 
-          <div class="tab-content" id="tab-colors">
-            <section class="control-group">
-              <h3>Theme Backgrounds</h3>
-              <div class="control col">
-                <label>Island Background</label>
-                <div class="input-row">
-                  <input type="color" id="bg-secondary" value="#161616">
-                  <span class="hex-display" id="val-bg-secondary">#161616</span>
-                </div>
-              </div>
-              <div class="control col">
-                <label>App Background</label>
-                <div class="input-row">
-                  <input type="color" id="bg-tertiary" value="#0a0a0a">
-                  <span class="hex-display" id="val-bg-tertiary">#0a0a0a</span>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="tab-content" id="tab-chat">
-            <section class="control-group">
-              <h3>Message Bubbles</h3>
-              <div class="control">
-                <div class="label-row">
-                  <label>Bubble Radius</label>
-                  <span class="value-display" id="val-bubble-radius">24px</span>
-                </div>
-                <input type="range" id="bubble-radius" min="0" max="40" value="24">
-              </div>
-              <div class="control col">
-                <label>Bubble Background</label>
-                <div class="input-row">
-                  <input type="color" id="bubble-bg" value="#161616">
-                  <span class="hex-display" id="val-bubble-bg">#161616</span>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="tab-content" id="tab-advanced">
-            <section class="control-group">
-              <h3>Effects</h3>
-              <div class="control">
-                <div class="label-row">
-                  <label>Global Opacity</label>
-                  <span class="value-display" id="val-opacity">1</span>
-                </div>
-                <input type="range" id="opacity" min="0" max="1" step="0.01" value="1">
-              </div>
-              <div class="control">
-                <div class="label-row">
-                  <label>Blur Intensity</label>
-                  <span class="value-display" id="val-blur">5px</span>
-                </div>
-                <input type="range" id="blur" min="0" max="20" value="5">
-              </div>
-            </section>
+          <div class="editor-footer">
+            <button id="view-code-btn" class="btn-secondary">View Code</button>
           </div>
         </aside>
 
         <!-- Preview Mockup -->
         <section class="preview-pane" id="preview-root">
+          <div id="code-overlay" class="code-overlay hidden">
+            <div class="code-header">
+              <span>Theme Code Preview</span>
+              <button id="close-code-btn">&times;</button>
+            </div>
+            <pre><code id="theme-code-display"></code></pre>
+          </div>
           <div class="mock-discord">
             <nav class="mock-guilds">
               <div class="mock-guild-item active"></div>
