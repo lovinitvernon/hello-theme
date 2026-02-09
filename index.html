@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unity 2026 | Theme Editor</title>
+    <script type="module" crossorigin src="./assets/index-DONSkjwY.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BhP55kib.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="editor-header">
+        <div class="logo">✨ Unity 2026</div>
+        <div class="actions">
+          <button id="export-btn" class="btn-primary">Export .css</button>
+        </div>
+      </header>
+
+      <main class="editor-container">
+        <!-- Editor Controls -->
+        <aside class="editor-pane">
+          <section class="control-group">
+            <h3>Global Aesthetics</h3>
+            <div class="control">
+              <label>Accent Hue</label>
+              <input
+                type="range"
+                id="accent-hue"
+                min="0"
+                max="360"
+                value="210"
+              />
+            </div>
+            <div class="control">
+              <label>Island Gap</label>
+              <input type="range" id="island-gap" min="0" max="24" value="8" />
+            </div>
+            <div class="control">
+              <label>Border Radius</label>
+              <input
+                type="range"
+                id="border-radius"
+                min="0"
+                max="32"
+                value="20"
+              />
+            </div>
+          </section>
+
+          <section class="control-group">
+            <h3>Colors</h3>
+            <div class="control">
+              <label>Island Background</label>
+              <input type="color" id="bg-secondary" value="#161616" />
+            </div>
+            <div class="control">
+              <label>App Background</label>
+              <input type="color" id="bg-tertiary" value="#0a0a0a" />
+            </div>
+          </section>
+
+          <section class="control-group">
+            <h3>Chat Bubbles</h3>
+            <div class="control">
+              <label>Bubble Radius</label>
+              <input
+                type="range"
+                id="bubble-radius"
+                min="0"
+                max="32"
+                value="24"
+              />
+            </div>
+          </section>
+        </aside>
+
+        <!-- Preview Mockup -->
+        <section class="preview-pane" id="preview-root">
+          <!-- Mock Discord UI will be injected here -->
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
