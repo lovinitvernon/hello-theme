@@ -16,9 +16,18 @@ body {
         background: none;
 
         .app_b1f720 {
+            background-color: transparent;
 
             .app_de4237 {
                 background: none;
+
+                // LAYER MARGINS
+                .layers__160d8 {
+                    margin: var(--unity-dplus-spacing);
+                    border-radius: var(--unity-island-radius);
+                    overflow: hidden;
+                    background-color: var(--unity-background-tertiary);
+                }
 
                 // BACKGROUND
                 .bg__12180 {

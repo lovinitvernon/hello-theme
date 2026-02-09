@@ -87,7 +87,9 @@
         --unity-chat-bubble-box-shadow-color-l: 0%;
         --unity-chat-bubble-box-shadow-color-a: 0.1;
 
-        --unity-border-radius: 20px; /* Matching the island design */
+        --unity-border-radius: 10px; /* Adopting Discord-Plus UI radius for panels */
+        --unity-island-radius: 20px; /* Keeping higher radius for main islands */
+        --unity-dplus-spacing: 10px; /* Discord-Plus standard spacing */
         --unity-floating-blur-radius: 5px;
         --unity-background-floating: rgba(var(--unity-background-secondary-rgb), 0.5);
         --border-width: 2px;

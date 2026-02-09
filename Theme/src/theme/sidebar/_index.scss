@@ -25,15 +25,16 @@
 
     .sidebar_e031be,
     .sidebar_e031be.hasNotice_cc284c {
-        border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
-        margin-right: calc(var(--unity-island-gap) * var(--enable-gaps));
-        margin-bottom: calc(var(--unity-island-gap) * var(--enable-gaps));
+        border-radius: var(--unity-border-radius);
+        margin-right: var(--unity-dplus-spacing);
+        margin-bottom: var(--unity-dplus-spacing);
         opacity: var(--unity-opacity, 1);
         overflow: hidden;
         background-color: var(--background-secondary);
-        /* hide overflow so borders will actually be rounded */
-
-    
+        
+        // Ensure child elements don't overlap rounded corners
+        mask-image: linear-gradient(black, black);
+        
         @at-root :root.theme-dark:not(.custom-theme-background) .scroller__89969 {
             background: var(--sidebar-background-color, var(--background-secondary));
         }
@@ -43,105 +44,41 @@
             @at-root :root[class*="full-motion"] & {
                 transition:
                     margin-bottom 2s keyframes.$cubic-bezier1,
-                    border-radius 2s keyframes.$cubic-bezier-launch,
-                    border-width 1s keyframes.$cubic-bezier-launch;
+                    border-radius 2s keyframes.$cubic-bezier-launch;
             }
 
             background-color: transparent;
+            border-radius: var(--unity-border-radius);
+            margin-bottom: var(--unity-dplus-spacing);
             
-            border: calc(var(--sidebar-border-width, 0) * var(--enable-gaps)) solid var(--sidebar-border-color, transparent);
-            border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
-            margin-bottom: calc(var(--unity-inset) * var(--enable-gaps));
-
-           @at-root :root.custom-theme-background & {
-                background-blend-mode: normal;
-                background: var(--bg-overlay-3, var(--sidebar-background-color, var(--background-secondary)));
-            }
-
-            button.searchBarComponent__8f95f {
-                border-radius: calc(var(--unity-border-radius) - 10px);
-                background-color: var(--background-tertiary);
-                border: 1px solid rgba(255, 255, 255, 0.05);
-                transition: background-color 0.2s ease;
-                
-                &:hover {
-                    background-color: var(--background-secondary-alt);
-                }
-            }
-            
-            // Adjust scroller padding for islands
             &.scrollerBase-_bVAAt {
                 padding: 10px 8px !important;
-            }
-
-            &::after {
-                backdrop-filter: blur(var(--sidebar-background-blur));
-                background-color: var(--sidebar-background-color, var(--background-secondary));
-                background-image: var(--sidebar-background-image);
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-blend-mode: multiply;
-                position: absolute;
-                z-index: -1;
-                content:"";
-                width: 100%;
-                height: 100%;
-                top:0;
-                left: 0;
-                border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
             }
         }
     }
 
     /* PANELS */
     [class*="panels_"] {
-        margin-top: calc(var(--unity-island-gap) * 1.5 * var(--enable-gaps)); // Increased gap
+        width: calc(100% - var(--unity-dplus-spacing));
+        margin-top: var(--unity-dplus-spacing);
         opacity: var(--unity-opacity, 1);
-        border: none; // No borders as requested
+        border: none;
         overflow: hidden;
-        border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
+        border-radius: var(--unity-border-radius);
         background-color: var(--background-secondary);
-        background-image: var(--panels-background-image);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-blend-mode: multiply;
-        backdrop-filter: blur(var(--panels-background-blur));
         
-        min-height: 48px; // Shorter look
+        min-height: 48px;
 
         [class*="container_"] {
-            height: 48px; // Shorter look
+            height: 48px;
             padding: 0 8px;
         }
 
         [class*="avatarWrapper_"] {
-            border-radius: calc(var(--unity-border-radius) - 10px);
+            border-radius: calc(var(--unity-border-radius) - 4px);
             margin: 2px 4px;
             padding: 2px 4px;
             height: 36px;
-            
-            &:hover {
-                background-color: var(--background-modifier-hover);
-            }
-        }
-
-        .custom-theme-background & {
-            background-blend-mode: normal;
-            background: var(--background-secondary);
-        }
-
-        [class*="container_"][class*="ad_"] {
-            margin-bottom: 0;
-            background: none;
-        }
-
-        [class*="container_"][class*="voice_"] {
-            background: transparent;
-
-            .custom-theme-background & {
-                background-blend-mode: normal;
-                background: var(--bg-overlay-3, var(--background-secondary-alt));
-            }
         }
     }
 
