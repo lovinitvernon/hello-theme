@@ -1,0 +1,11 @@
+{
+	"type": "module",
+	"scripts": {
+		"build": "bd-scss build",
+		"dev": "bd-scss dev",
+		"watch": "bd-scss watch"
+	},
+	"dependencies": {
+		"bd-scss": "latest"
+	}
+}

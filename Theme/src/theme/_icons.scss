@@ -1,0 +1,26 @@
+/* Icons Styling - Unity Inspired 2026 */
+
+/* Unity usually has sleek, monochrome or glowy icons */
+[class*="icon_"] {
+    transition: filter 0.2s ease, transform 0.2s ease;
+    
+    &:hover {
+        filter: drop-shadow(0 0 8px var(--brand-experiment));
+        transform: scale(1.1);
+    }
+}
+
+/* Specific styling for channel icons */
+[class*="modeSelected_"] [class*="icon_"] {
+    color: var(--interactive-active) !important;
+    filter: drop-shadow(0 0 10px var(--brand-experiment)) !important;
+}
+
+/* Action icons (Edit, Reply, etc.) */
+[class*="button_"] [class*="icon_"] {
+    opacity: 0.8;
+}
+
+[class*="button_"]:hover [class*="icon_"] {
+    opacity: 1;
+}

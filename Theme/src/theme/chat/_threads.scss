@@ -1,0 +1,31 @@
+.container__694a1
+
+/* floating container for open thread */
+    {
+    border: var(--threads-border-width, 0) solid var(--threads-border-color, transparent);
+    border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
+    opacity: var(--unity-opacity, 1);
+    overflow: hidden;
+    /* hide overflow so borders will actually be rounded */
+    backdrop-filter: blur(var(--threads-blur-radius));
+    background: var(--threads-background-color, var(--background-primary));
+
+    &+.resizeHandle_cc9d34 {
+        margin: auto calc(var(--unity-inset) / 2);
+        height: 80vh;
+        border-radius: var(--radius-round);
+        z-index: 3;
+
+    }
+
+    .notFloating__20d50~& {}
+}
+
+.container__68e43 {
+    border-top: none;
+    +.divider__4df9f {
+        width: 95%;
+        margin: auto;
+        border-radius: var(--radius-round);
+    }
+}

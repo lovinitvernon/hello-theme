@@ -1,0 +1,167 @@
+// CHANNEL TEXT AREA
+.form_d8a4a1 {
+    padding: 0 8px;
+
+    .wrapper__57349 {
+        border-radius: var(--unity-border-radius);
+        margin-bottom: 4px;
+        background: var(--background-primary);
+        box-shadow: var(--elevation-low);
+    }
+
+    &::before {
+        display: none;
+    }
+
+
+    &:has(.typing__6fd1d) {
+        
+        .channelTextArea_c2094b {
+            margin-bottom: 24px;
+        }
+    }
+
+    .typing__6fd1d {
+        animation: fadein 0.5s ease-in normal forwards;
+    }
+
+    .channelTextArea_c2094b {
+        margin-bottom: 8px;
+
+        .threadSuggestionBar__717a3 {
+            border-radius: var(--unity-border-radius);
+            margin-top: 5px;
+            box-shadow: none;
+        }
+    
+
+        :root.full-motion & {
+            transition: margin-bottom ease-out 0.2s;
+        }
+
+        .custom-theme-background & {
+            background-color: transparent;
+        }
+
+        .autocomplete__743a5 {
+            border-radius: var(--unity-border-radius);
+            background-color: var(--unity-background-floating);
+             &::before {
+                content:"";
+                backdrop-filter: blur(30px);
+                position:absolute;
+                top:0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+             }
+
+            .rail_ad1aea {
+
+
+                .wrapper__85934 {
+                    background: transparent;
+                }
+            }
+
+            ul[role="group"] {
+                .categoryHeader__70c8e {
+                    background: none;
+
+                    .header__8e271[role="button"] {
+                        margin-top: 12px;
+                    }
+                }
+            }
+        }
+
+        .scrollableContainer_ff917f {
+            &:not(.channelTextAreaInner-2_mflx) {
+                border-radius: calc(var(--unity-border-radius) - 6px);
+                overflow-y: overlay !important;
+            }
+
+            &.hasConnectedBar__7d21e {
+                background: var(--brand-experiment-25a);
+            }
+        }
+
+        .actionBar_a15295 {
+            .wrapper__4e6b6 {
+                border-radius: var(--unity-border-radius);
+
+                button {
+                    &:first-of-type {
+                        border-top-left-radius: var(--unity-border-radius);
+                        border-bottom-left-radius: var(--unity-border-radius);
+                    }
+
+                    &:last-of-type {
+                        border-top-right-radius: var(--unity-border-radius);
+                        border-bottom-right-radius: var(--unity-border-radius);
+                    }
+                }
+            }
+        }
+
+        .attachedBars_c1606a {
+            padding-bottom: 5px;
+            background: transparent;
+            border-radius: var(--unity-border-radius);
+
+            .replyBar_ed6afc {
+                border-radius: var(--unity-border-radius);
+            }
+        }
+
+        .buttons__7ecff {
+            margin-right: 6px;
+
+            // Send button stuff
+            .innerButton__9efb8 {
+                margin: 0;
+            }
+
+            .separator__666aa {
+                margin-left: 8px;
+
+                >.buttonContainer__14dd9>button:last-of-type {
+                    width: 35px;
+                    height: 35px;
+                    align-items: center;
+                    align-self: center;
+                    border-radius: calc(var(--unity-border-radius) - 8px);
+                    margin-left: 10px;
+
+                    .contents__322f4 {
+                        margin: 0 auto;
+                    }
+
+                    &:not(:disabled) {
+                        background-color: var(--brand-experiment);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* SLATE TOOLBAR  */
+#slate-toolbar {
+    border-radius: var(--unity-border-radius);
+
+    .buttons_dd497f {
+        button {
+            border-radius: var(--unity-border-radius);
+
+            &:first-of-type {
+                border-radius: var(--unity-border-radius) 0 0 var(--unity-border-radius);
+            }
+
+            &:last-of-type {
+                border-radius: 0 var(--unity-border-radius) var(--unity-border-radius) 0;
+            }
+        }
+    }
+}

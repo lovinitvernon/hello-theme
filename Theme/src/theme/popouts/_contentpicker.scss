@@ -1,0 +1,113 @@
+/* STICKER / GIF / EMOJI PICKER */
+
+.contentWrapper_eab878, .contentWrapper_e0bb2c {
+    grid-template-rows: auto 24px;
+    padding-bottom: 8px;
+}
+
+.nav_b56420,
+.nav__2aafa {
+    order: 2;
+}
+
+.wrapper__91b2c{
+    background-color: transparent;
+}
+
+.navItem__38e35+.navItem__38e35 {
+    margin-left: 10px;
+}
+
+.navItem__38e35 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container_ec5ce2 {
+    border-radius: var(--unity-border-radius);
+}
+
+.categoryFadeBlurple_ffb0c5 {
+    border-radius: var(--unity-border-radius);
+}
+
+section .contentWrapper_e0bb2c,
+.unicodeShortcut__01a83,
+.standardStickerShortcut_e9a698,
+#emoji-picker-tab-panel>.header_e5d8b2,
+.scroller_ac6d1c.list__30719 {
+    background-color: var(--unity-background-floating);
+    -webkit-backdrop-filter: blur(var(--unity-floating-blur-radius));
+    backdrop-filter: blur(var(--unity-floating-blur-radius));
+}
+
+.header_e5d8b2 {
+    background-color: transparent;
+}
+
+.emojiPicker__5e2e2 {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.container_ec5ce2 {
+    background-color: var(--unity-background-floating);
+    -webkit-backdrop-filter: blur(var(--unity-floating-blur-radius));
+    backdrop-filter: blur(var(--unity-floating-blur-radius));
+
+}
+
+.inspector__80c84 {
+    -webkit-backdrop-filter: blur(var(--unity-floating-blur-radius));
+    backdrop-filter: blur(var(--unity-floating-blur-radius));
+    background-color: var(--unity-background-floating);
+}
+
+.wrapper__91b2c.header__3028e {
+    flex-shrink: 1;
+    top: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: unset;
+}
+
+.header__8e271 {
+    background-color: var(--background-tertiary);
+    padding: 5px;
+    border-radius: var(--unity-border-radius);
+}
+
+.wrapper__91b2c::after {
+    display: none;
+}
+
+.searchBar_ca009d {
+    border-radius: var(--radius-round);
+}
+
+.contentWrapper_e0bb2c {
+    border-radius: var(--unity-border-radius);
+}
+
+.contentWrapper_e0bb2c .container_ec5ce2 {
+    border-radius: var(--unity-border-radius);
+}
+
+[class*="navButtonActive"] {
+    background-color: var(--brand-experiment);
+    border-radius: var(--radius-round);
+}
+
+.navList__5c9f4 {
+    justify-content: center;
+}
+
+.result_e1fc74 {
+    border-radius: var(--unity-border-radius);
+    overflow: hidden;
+}
+
+.result_e1fc74::after {
+    border-radius: var(--unity-border-radius);
+}
+

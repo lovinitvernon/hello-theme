@@ -1,0 +1,74 @@
+/* Bubbles System - Unity Inspired Modernized for 2026 */
+
+:root {
+    --bubble-bg: var(--background-secondary);
+    --bubble-radius: var(--unity-border-radius);
+    --gutter-width: 72px; /* Increased for cleaner look */
+}
+
+/* Ensure the message container respects the gutter */
+[class*="message_"] {
+    position: relative;
+    margin-left: var(--gutter-width) !important;
+    padding-left: 0 !important;
+    background: transparent !important;
+    
+    &::before {
+        display: none !important; /* Remove background highlights */
+    }
+
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+/* Isolate the PFP in the gutter */
+[class*="avatar_"] {
+    position: absolute;
+    left: calc(-1 * var(--gutter-width) + 12px); /* Centered in wider gutter */
+    top: 8px;
+    width: 48px !important;
+    height: 48px !important;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+/* The Bubble System */
+[class*="contents_"] {
+    display: inline-block !important;
+    max-width: fit-content !important;
+    background-color: var(--bubble-bg) !important;
+    border-radius: var(--bubble-radius) !important;
+    padding: 12px 18px !important;
+    margin: 6px 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for definition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    .theme-light & {
+        background-color: var(--background-primary) !important;
+        border-color: rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* Ensure images and GIFs are handled within the bubble */
+[class*="message_"] [class*="container_"] {
+    max-width: 100% !important;
+}
+
+/* Fix for consecutive messages from the same user (without avatars) */
+[class*="message_"][class*="cozy_"] {
+    padding-bottom: 4px !important;
+    padding-top: 4px !important;
+}
+
+/* Hover effect */
+[class*="message_"]:hover [class*="contents_"] {
+    background-color: var(--background-secondary-alt) !important;
+    transform: translateY(-1px);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    
+    .theme-light & {
+        background-color: #f8f8f8 !important;
+    }
+}

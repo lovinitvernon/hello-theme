@@ -1,0 +1,36 @@
+/* GUILD LIST */
+
+@use '../keyframes';
+
+nav.wrapper__216eb {
+
+    :root.full-motion & {
+    transition: 
+        margin 3s keyframes.$cubic-bezier1,
+        border-radius 2s keyframes.$cubic-bezier-launch,
+        opacity 1s keyframes.$cubic-bezier-launch;
+}
+
+    margin: calc(var(--unity-island-gap) * var(--enable-gaps));
+    margin-right: 0;
+    
+    border-radius: calc(var(--unity-border-radius) * var(--enable-gaps));
+    opacity: var(--unity-opacity, 1);
+    background-color: var(--guilds-background-color, var(--background-tertiary));
+    background-image: var(--guilds-background-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    /* blends background color and image if set */
+    -webkit-backdrop-filter: blur(var(--chat-background-blur, 0px));
+    backdrop-filter: blur(var(--guilds-background-blur, 0px));
+
+    .scroller_de945b {
+        background-color: transparent;
+        padding-top: 10px;
+        .custom-theme-background & {
+            background: var(--bg-overlay-app-frame, transparent);
+            background-blend-mode: normal;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.quickswitcher_b5bb0a {
+    background-color: var(--unity-background-floating);
+    backdrop-filter: blur(var(--unity-floating-blur-radius));
+    border-radius: var(--unity-border-radius);
+    input {
+        text-align: center;
+        border-radius: calc(var(--unity-border-radius) - 20px);
+    }
+    .scroller_d4b86c {
+        background: transparent;
+    }
+}

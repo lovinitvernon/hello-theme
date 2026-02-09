@@ -1,0 +1,66 @@
+@use './my-account';
+@use './radios';
+@use './devices';
+@use './appearance';
+@use './serversettings';
+@use './tabs';
+@use './profiles';
+@use './connections';
+
+.standardSidebarView__12528 {
+
+    .contentColumn__5f80b {
+
+        &#my-account-tab > div > .marginTop40_bda863:last-of-type .sectionTitle__3e02b > h2 {
+            font-size: unset;
+            margin-bottom: initial;
+            margin-top: initial;
+        }
+
+        .sectionTitle__3e02b>.defaultMarginh1__53162,
+         h2:first-of-type:not([class*="bd-"]) {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 50px;
+            margin-top: 20px;
+
+            &>.headerContainer_b57177 {
+                justify-content: center;
+                font-size: 30px;
+                margin-bottom: 10px;
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    }
+
+    .button__581d0 {
+        border-radius: var(--unity-border-radius);
+
+        &.removeButton__70891.lookLink_a2da25 {
+            background-color: var(--status-danger);
+            color: var(--interactive-active);
+
+            .contents__322f4 {
+                --button--underline-color: transparent;
+            }
+        }
+    }
+
+    .card__4dc22 {
+        border-radius: var(--unity-border-radius);
+    }
+
+    .codeRedemptionRedirect_b3eca7.card-16VQ8C,
+    .formNotice-2nS8ey.cardPrimary-3qRT__,
+    .attendeeCTA__1439e
+
+    /* Hypesquad */
+        {
+        background-color: var(--brand-experiment-25a);
+        border-radius: var(--unity-border-radius);
+        border: none;
+        padding: 16px 22px;
+    }
+
+}
